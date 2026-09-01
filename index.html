@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gotas de Humo — El Archivo de Enrique González Caro-Silva</title>
   <meta name="description" content="Archivo de exposición y sátira sobre las gotas oculares pseudocientíficas de Enrique González Caro-Silva. Evidencia documentada." />
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -13,114 +15,25 @@
           colors: {
             danger: '#EF4444',
             warning: '#F59E0B',
-            dark: { 900:'#0f0f13', 800:'#18181f', 700:'#23232e', 600:'#2e2e3a' },
+            dark: { 900: '#0f0f13', 800: '#18181f', 700: '#23232e', 600: '#2e2e3a' },
           },
           fontFamily: {
-            display: ['"Space Grotesk"','system-ui','sans-serif'],
-            body: ['"Inter"','system-ui','sans-serif'],
-            mono: ['"JetBrains Mono"','monospace'],
-          }
-        }
-      }
-    }
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    };
   </script>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    body { background: #0f0f13; color: #e4e4e7; font-family: 'Inter', system-ui, sans-serif; }
 
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #18181f; }
-    ::-webkit-scrollbar-thumb { background: #EF4444; border-radius: 4px; }
-
-    /* ── Card flip ── */
-    .card-flip { perspective: 1200px; }
-    .card-flip-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.7s cubic-bezier(.4,0,.2,1);
-      transform-style: preserve-3d;
-    }
-    .card-flip:hover .card-flip-inner,
-    .card-flip:focus-within .card-flip-inner { transform: rotateY(180deg); }
-    .card-front, .card-back {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-    .card-back { transform: rotateY(180deg); }
-
-    /* ── Glow pulse for danger badges ── */
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 8px rgba(239,68,68,.4); }
-      50% { box-shadow: 0 0 24px rgba(239,68,68,.8); }
-    }
-    .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
-
-    /* ── Reveal on scroll ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── Floating nav blur ── */
-    .nav-blur { backdrop-filter: blur(16px) saturate(1.6); -webkit-backdrop-filter: blur(16px) saturate(1.6); }
-
-    /* ── Marquee ── */
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-marquee { animation: marquee 30s linear infinite; }
-
-    /* ── Ticker stripe ── */
-    .ticker-stripe {
-      background: repeating-linear-gradient(
-        -45deg,
-        #F59E0B,
-        #F59E0B 10px,
-        #0f0f13 10px,
-        #0f0f13 20px
-      );
-    }
-
-    /* ── Hero scanline ── */
-    .scanlines::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,0.15) 2px,
-        rgba(0,0,0,0.15) 4px
-      );
-      pointer-events: none;
-    }
-
-    /* ── Profile dossier ── */
-    .dossier-stamp {
-      border: 3px solid #EF4444;
-      padding: 0.25rem 0.75rem;
-      transform: rotate(-3deg);
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-    }
-  </style>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="antialiased overflow-x-hidden">
 
@@ -130,14 +43,10 @@
 <nav id="navbar" class="fixed top-0 inset-x-0 z-50 nav-blur bg-dark-900/80 border-b border-white/5 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
       <a href="#hero" class="flex items-center gap-2 group">
         <span class="text-danger text-2xl group-hover:animate-bounce">💧</span>
-        <span class="font-display font-bold text-lg tracking-tight">
-          Gotas de <span class="text-danger">Humo</span>
-        </span>
+        <span class="font-display font-bold text-lg tracking-tight">Gotas de <span class="text-danger">Humo</span></span>
       </a>
-      <!-- Desktop links -->
       <div class="hidden md:flex items-center gap-1">
         <a href="#evidencia" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition">Evidencia</a>
         <a href="#productos" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition">Productos y Mitos</a>
@@ -148,13 +57,11 @@
           Denunciar
         </a>
       </div>
-      <!-- Mobile toggle -->
       <button id="menuToggle" class="md:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-white/10 transition" aria-label="Abrir menú">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
   </div>
-  <!-- Mobile menu -->
   <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-dark-900/95 nav-blur">
     <div class="px-4 py-3 space-y-1">
       <a href="#evidencia" class="block px-3 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition">Evidencia</a>
@@ -188,14 +95,10 @@
      ║             HERO SECTION                ║
      ╚══════════════════════════════════════════╝ -->
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 scanlines">
-  <!-- Background grid -->
   <div class="absolute inset-0 opacity-[0.04]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M0 0h60v60H0z&quot; fill=&quot;none&quot;/%3E%3Cpath d=&quot;M60 0v60M0 0h60&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;0.5&quot;/%3E%3C/svg%3E');"></div>
-
-  <!-- Radial glow -->
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-danger/5 rounded-full blur-[120px] pointer-events-none"></div>
 
   <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
-    <!-- Badge -->
     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-danger/10 border border-danger/30 mb-8 reveal">
       <span class="relative flex h-2.5 w-2.5">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-danger opacity-75"></span>
@@ -204,18 +107,15 @@
       <span class="text-danger text-xs font-mono font-bold uppercase tracking-widest">Archivo de Evidencia Activo</span>
     </div>
 
-    <!-- Title -->
     <h1 class="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 reveal">
       De <span class="text-zinc-500 line-through decoration-2">"Científico"</span> Improvisto a<br/>
       <span class="text-danger">Charlatán</span> de las Gotas
     </h1>
 
-    <!-- Subtitle -->
     <p class="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 reveal">
       Documentación satírica y periodística sobre las afirmaciones pseudocientíficas de Enrique González Caro-Silva y sus llamadas <span class="text-warning font-semibold">"gotas milagrosas"</span>. Toda la evidencia, sin filtros.
     </p>
 
-    <!-- CTA Buttons -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
       <a href="#productos" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-danger text-white font-semibold text-lg hover:bg-red-600 transition shadow-lg shadow-danger/25 hover:shadow-danger/40">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
@@ -227,7 +127,6 @@
       </a>
     </div>
 
-    <!-- Stats -->
     <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-16 reveal">
       <div class="text-center">
         <div class="text-2xl sm:text-3xl font-display font-bold text-danger">0</div>
@@ -244,7 +143,6 @@
     </div>
   </div>
 
-  <!-- Scroll indicator -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
     <svg class="w-6 h-6 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
   </div>
@@ -262,7 +160,6 @@
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Card 1 -->
       <div class="reveal group bg-dark-800 border border-white/5 rounded-2xl p-6 hover:border-danger/30 transition-all duration-300 hover:shadow-lg hover:shadow-danger/5">
         <div class="w-12 h-12 rounded-xl bg-danger/10 flex items-center justify-center mb-4 group-hover:scale-110 transition">
           <svg class="w-6 h-6 text-danger" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -271,7 +168,6 @@
         <p class="text-zinc-400 text-sm leading-relaxed">Ninguno de los productos tiene registro ante COFEPRIS o cualquier organismo regulador de salud. Se venden directamente vía WhatsApp y tienda en línea.</p>
       </div>
 
-      <!-- Card 2 -->
       <div class="reveal group bg-dark-800 border border-white/5 rounded-2xl p-6 hover:border-warning/30 transition-all duration-300 hover:shadow-lg hover:shadow-warning/5">
         <div class="w-12 h-12 rounded-xl bg-warning/10 flex items-center justify-center mb-4 group-hover:scale-110 transition">
           <svg class="w-6 h-6 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
@@ -280,7 +176,6 @@
         <p class="text-zinc-400 text-sm leading-relaxed">No se ha demostrado que posea cédula profesional válida en medicina, oftalmología o farmacia. Sus títulos no son verificables en fuentes oficiales.</p>
       </div>
 
-      <!-- Card 3 -->
       <div class="reveal group bg-dark-800 border border-white/5 rounded-2xl p-6 hover:border-danger/30 transition-all duration-300 hover:shadow-lg hover:shadow-danger/5">
         <div class="w-12 h-12 rounded-xl bg-danger/10 flex items-center justify-center mb-4 group-hover:scale-110 transition">
           <svg class="w-6 h-6 text-danger" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -289,7 +184,6 @@
         <p class="text-zinc-400 text-sm leading-relaxed">Los productos se comercializan a través de WhatsApp y la tienda en línea <span class="text-warning font-mono text-xs">enriqueylavida.shop</span>, sin supervisión médica.</p>
       </div>
 
-      <!-- Card 4 -->
       <div class="reveal group bg-dark-800 border border-white/5 rounded-2xl p-6 hover:border-warning/30 transition-all duration-300 hover:shadow-lg hover:shadow-warning/5">
         <div class="w-12 h-12 rounded-xl bg-warning/10 flex items-center justify-center mb-4 group-hover:scale-110 transition">
           <svg class="w-6 h-6 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
@@ -298,7 +192,6 @@
         <p class="text-zinc-400 text-sm leading-relaxed">Se atribuyen propiedades curativas para glaucoma, cataratas, miopía severa y otras condiciones que requieren tratamiento médico especializado.</p>
       </div>
 
-      <!-- Card 5 -->
       <div class="reveal group bg-dark-800 border border-white/5 rounded-2xl p-6 hover:border-danger/30 transition-all duration-300 hover:shadow-lg hover:shadow-danger/5">
         <div class="w-12 h-12 rounded-xl bg-danger/10 flex items-center justify-center mb-4 group-hover:scale-110 transition">
           <svg class="w-6 h-6 text-danger" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -307,7 +200,6 @@
         <p class="text-zinc-400 text-sm leading-relaxed">Aplicar sustancias no estérilizadas ni reguladas directamente en los ojos puede causar infecciones graves, úlceras corneales y pérdida de visión.</p>
       </div>
 
-      <!-- Card 6 -->
       <div class="reveal group bg-dark-800 border border-white/5 rounded-2xl p-6 hover:border-warning/30 transition-all duration-300 hover:shadow-lg hover:shadow-warning/5">
         <div class="w-12 h-12 rounded-xl bg-warning/10 flex items-center justify-center mb-4 group-hover:scale-110 transition">
           <svg class="w-6 h-6 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
@@ -335,10 +227,9 @@
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      <!-- ── Product Card 1 ── -->
+      <!-- Product Card 1 -->
       <div class="card-flip h-[420px] reveal" tabindex="0" role="button" aria-label="Voltear tarjeta para ver realidad">
         <div class="card-flip-inner">
-          <!-- FRONT: Mito -->
           <div class="card-front bg-dark-700 border border-white/10 flex flex-col">
             <div class="relative h-48 bg-dark-600 flex items-center justify-center overflow-hidden">
               <img src="placeholder-drop-1.jpg" alt="Gotas Regeneradoras" class="w-full h-full object-cover opacity-60" onerror="this.style.display='none'" />
@@ -356,7 +247,6 @@
               </div>
             </div>
           </div>
-          <!-- BACK: Realidad -->
           <div class="card-back bg-dark-900 border-2 border-danger flex flex-col p-6">
             <div class="flex items-center gap-2 mb-4">
               <div class="pulse-glow w-8 h-8 rounded-full bg-danger/20 flex items-center justify-center">
@@ -371,14 +261,12 @@
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> Sin registro sanitario = composición desconocida.</li>
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> Riesgo de infección por falta de esterilización.</li>
             </ul>
-            <div class="mt-4 px-3 py-2 bg-danger/10 rounded-lg text-xs text-danger font-mono">
-              ⚠️ PELIGRO: Producto no regulado. Puede causar daño ocular irreversible.
-            </div>
+            <div class="mt-4 px-3 py-2 bg-danger/10 rounded-lg text-xs text-danger font-mono">⚠️ PELIGRO: Producto no regulado. Puede causar daño ocular irreversible.</div>
           </div>
         </div>
       </div>
 
-      <!-- ── Product Card 2 ── -->
+      <!-- Product Card 2 -->
       <div class="card-flip h-[420px] reveal" tabindex="0" role="button" aria-label="Voltear tarjeta para ver realidad">
         <div class="card-flip-inner">
           <div class="card-front bg-dark-700 border border-white/10 flex flex-col">
@@ -407,19 +295,17 @@
             </div>
             <h3 class="font-display font-bold text-xl text-white mb-3">El glaucoma no se cura con gotas caseras</h3>
             <ul class="space-y-2 text-sm text-zinc-300 flex-1">
-              <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> El glaucoma requiere tratamiento con láTimolol, brimonidina, etc., medicamentos aprobados.</li>
+              <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> El glaucoma requiere tratamiento con Timolol, brimonidina, etc., medicamentos aprobados.</li>
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> Sin diagnóstico por tonometría, es imposible tratar el glaucoma.</li>
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> Puede causar ceguera irreversible si no se trata correctamente.</li>
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> Ningún ensayo clínico respalda estas gotas.</li>
             </ul>
-            <div class="mt-4 px-3 py-2 bg-danger/10 rounded-lg text-xs text-danger font-mono">
-              ⚠️ PELIGRO: Retrasar tratamiento médico puede causar ceguera.
-            </div>
+            <div class="mt-4 px-3 py-2 bg-danger/10 rounded-lg text-xs text-danger font-mono">⚠️ PELIGRO: Retrasar tratamiento médico puede causar ceguera.</div>
           </div>
         </div>
       </div>
 
-      <!-- ── Product Card 3 ── -->
+      <!-- Product Card 3 -->
       <div class="card-flip h-[420px] reveal" tabindex="0" role="button" aria-label="Voltear tarjeta para ver realidad">
         <div class="card-flip-inner">
           <div class="card-front bg-dark-700 border border-white/10 flex flex-col">
@@ -451,16 +337,14 @@
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> La catarata es opacificación del cristalino. Solo se cura con cirugía.</li>
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> No existe ningún colirio que disuelva cataratas. Es científicamente imposible.</li>
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> Prometer cura sin cirugía es engañar a pacientes vulnerables.</li>
-              <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> La cirugía de cataratas tiene >95% de éxito en centros regulados.</li>
+              <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> La cirugía de cataratas tiene &gt;95% de éxito en centros regulados.</li>
             </ul>
-            <div class="mt-4 px-3 py-2 bg-danger/10 rounded-lg text-xs text-danger font-mono">
-              ⚠️ PELIGRO: Retrasar cirugía puede llevar a ceguera total.
-            </div>
+            <div class="mt-4 px-3 py-2 bg-danger/10 rounded-lg text-xs text-danger font-mono">⚠️ PELIGRO: Retrasar cirugía puede llevar a ceguera total.</div>
           </div>
         </div>
       </div>
 
-      <!-- ── Product Card 4 ── -->
+      <!-- Product Card 4 -->
       <div class="card-flip h-[420px] reveal" tabindex="0" role="button" aria-label="Voltear tarjeta para ver realidad">
         <div class="card-flip-inner">
           <div class="card-front bg-dark-700 border border-white/10 flex flex-col">
@@ -494,14 +378,12 @@
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> Atropina de baja dosis se usa para ralentizar miopía en niños, no eliminarla.</li>
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> La composición de estas gotas es completamente desconocida.</li>
             </ul>
-            <div class="mt-4 px-3 py-2 bg-danger/10 rounded-lg text-xs text-danger font-mono">
-              ⚠️ PELIGRO: Sustancias desconocidas en el ojo pueden causar daño químico.
-            </div>
+            <div class="mt-4 px-3 py-2 bg-danger/10 rounded-lg text-xs text-danger font-mono">⚠️ PELIGRO: Sustancias desconocidas en el ojo pueden causar daño químico.</div>
           </div>
         </div>
       </div>
 
-      <!-- ── Product Card 5 ── -->
+      <!-- Product Card 5 -->
       <div class="card-flip h-[420px] reveal sm:col-span-2 lg:col-span-2" tabindex="0" role="button" aria-label="Voltear tarjeta para ver realidad">
         <div class="card-flip-inner">
           <div class="card-front bg-dark-700 border border-white/10 flex flex-col">
@@ -536,9 +418,7 @@
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> Precio elevado sugiere estafa financiera además de riesgo sanitario.</li>
               <li class="flex items-start gap-2"><span class="text-danger mt-0.5">✗</span> No hay transparencia sobre ingredientes, dosis ni cadena de producción.</li>
             </ul>
-            <div class="mt-4 px-3 py-2 bg-danger/10 rounded-lg text-xs text-danger font-mono">
-              ⚠️ PELIGRO: Estafa doble: económica y sanitaria. No compre.
-            </div>
+            <div class="mt-4 px-3 py-2 bg-danger/10 rounded-lg text-xs text-danger font-mono">⚠️ PELIGRO: Estafa doble: económica y sanitaria. No compre.</div>
           </div>
         </div>
       </div>
@@ -560,20 +440,10 @@
 
     <div class="grid md:grid-cols-2 gap-8">
 
-      <!-- Mr Doctor - Investigación -->
       <div class="reveal group">
         <div class="bg-dark-800 border border-white/5 rounded-2xl overflow-hidden hover:border-danger/30 transition-all duration-300">
           <div class="relative aspect-video bg-dark-700">
-            <!-- Replace src with actual YouTube embed URL -->
-            <iframe
-              class="w-full h-full"
-              src="https://www.youtube.com/embed/VIDEO_ID_MR_DOCTOR"
-              title="Mr Doctor - Investigación sobre El Loco de las Gotas"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_MR_DOCTOR" title="Mr Doctor - Investigación sobre El Loco de las Gotas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="p-5">
             <div class="flex items-center gap-2 mb-2">
@@ -591,19 +461,10 @@
         </div>
       </div>
 
-      <!-- La Voz de la Bisabuela -->
       <div class="reveal group">
         <div class="bg-dark-800 border border-white/5 rounded-2xl overflow-hidden hover:border-warning/30 transition-all duration-300">
           <div class="relative aspect-video bg-dark-700">
-            <iframe
-              class="w-full h-full"
-              src="https://www.youtube.com/embed/VIDEO_ID_LA_VOZ"
-              title="La Voz de la Bisabuela - Resumen sobre Gotas"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_LA_VOZ" title="La Voz de la Bisabuela - Resumen sobre Gotas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="p-5">
             <div class="flex items-center gap-2 mb-2">
@@ -621,19 +482,10 @@
         </div>
       </div>
 
-      <!-- El Ruinaversal -->
       <div class="reveal group">
         <div class="bg-dark-800 border border-white/5 rounded-2xl overflow-hidden hover:border-danger/30 transition-all duration-300">
           <div class="relative aspect-video bg-dark-700">
-            <iframe
-              class="w-full h-full"
-              src="https://www.youtube.com/embed/VIDEO_ID_RUINAVISAL"
-              title="El Ruinaversal - Denuncia Gotas Pseudocientíficas"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_RUINAVISAL" title="El Ruinaversal - Denuncia Gotas Pseudocientíficas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="p-5">
             <div class="flex items-center gap-2 mb-2">
@@ -651,7 +503,6 @@
         </div>
       </div>
 
-      <!-- Placeholder: More videos -->
       <div class="reveal group">
         <div class="bg-dark-800 border border-white/5 rounded-2xl overflow-hidden border-dashed hover:border-white/20 transition-all duration-300">
           <div class="relative aspect-video bg-dark-700 flex items-center justify-center">
@@ -686,7 +537,6 @@
     </div>
 
     <div class="reveal bg-dark-700 border border-white/10 rounded-2xl overflow-hidden">
-      <!-- Header stamp -->
       <div class="relative bg-dark-600 px-6 py-4 border-b border-white/5 flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-xl bg-danger/20 flex items-center justify-center">
@@ -697,14 +547,12 @@
             <p class="text-zinc-500 text-xs font-mono">Alias: "El Loco de las Gotas" / "Enrique y la Vida"</p>
           </div>
         </div>
-        <div class="dossier-stripe dossier-stripe text-danger text-xs hidden sm:block">
-          <span class="dossier-stripe dossier-stamp">⚠ No Verificado</span>
+        <div class="text-danger text-xs hidden sm:block">
+          <span class="dossier-stamp">⚠ No Verificado</span>
         </div>
       </div>
 
-      <!-- Body -->
       <div class="p-6 space-y-6">
-        <!-- Campo: Identidad -->
         <div>
           <h4 class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2">Identidad Verificada</h4>
           <div class="grid sm:grid-cols-2 gap-4">
@@ -727,7 +575,6 @@
           </div>
         </div>
 
-        <!-- Campo: Modus Operandi -->
         <div>
           <h4 class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2">Modus Operandi</h4>
           <div class="bg-dark-600 rounded-xl p-5 space-y-3">
@@ -754,7 +601,6 @@
           </div>
         </div>
 
-        <!-- Campo: Fuentes -->
         <div>
           <h4 class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2">Fuentes de Investigación</h4>
           <div class="flex flex-wrap gap-2">
@@ -766,7 +612,6 @@
           </div>
         </div>
 
-        <!-- Campo: Canales de Venta -->
         <div>
           <h4 class="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-2">Canales de Venta Identificados</h4>
           <div class="grid sm:grid-cols-3 gap-3">
@@ -789,7 +634,6 @@
         </div>
       </div>
 
-      <!-- Footer stamp -->
       <div class="bg-dark-600 px-6 py-3 border-t border-white/5 flex items-center justify-between">
         <span class="text-zinc-600 text-xs font-mono">Expediente generado con fuentes públicas</span>
         <span class="text-zinc-600 text-xs font-mono">Clasificación: ⚠️ ALERTA</span>
@@ -841,7 +685,6 @@
 <footer class="bg-dark-900 border-t border-white/5 py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-      <!-- Col 1 -->
       <div>
         <div class="flex items-center gap-2 mb-4">
           <span class="text-danger text-xl">💧</span>
@@ -849,7 +692,6 @@
         </div>
         <p class="text-zinc-500 text-sm leading-relaxed">Archivo satírico y de divulgación con fines informativos. Esta página no promueve el consumo de ningún producto mencionado.</p>
       </div>
-      <!-- Col 2 -->
       <div>
         <h4 class="font-display font-bold text-sm mb-4">Secciones</h4>
         <ul class="space-y-2">
@@ -859,7 +701,6 @@
           <li><a href="#perfil" class="text-zinc-500 hover:text-white text-sm transition">Perfil del Charlatán</a></li>
         </ul>
       </div>
-      <!-- Col 3 -->
       <div>
         <h4 class="font-display font-bold text-sm mb-4">Organismos de Salud</h4>
         <ul class="space-y-2">
@@ -869,15 +710,13 @@
           <li><a href="https://www.conacyt.mx" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-white text-sm transition">CONACYT</a></li>
         </ul>
       </div>
-      <!-- Col 4 -->
       <div>
         <h4 class="font-display font-bold text-sm mb-4">Aviso Legal</h4>
         <p class="text-zinc-500 text-xs leading-relaxed mb-3">Este sitio es un ejercicio de sátira, divulgación y periodismo ciudadano. Todo el contenido tiene fines informativos y de denuncia pública.</p>
-        <p class="text-zinc-600 text-[10px] leading-relaxed">No somos profesionales médicos. La información aquí presentada proviene de fuentes públicas, investigaciones de creadores de contenido y verificaciones independientes. Consulte a un profesional de la salud para决策es médicas.</p>
+        <p class="text-zinc-600 text-[10px] leading-relaxed">No somos profesionales médicos. La información aquí presentada proviene de fuentes públicas, investigaciones de creadores de contenido y verificaciones independientes. Consulte a un profesional de la salud para decisiones médicas.</p>
       </div>
     </div>
 
-    <!-- Bottom bar -->
     <div class="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-zinc-600 text-xs font-mono">© 2026 Gotas de Humo — Archivo de Evidencia. Sátira con fines de divulgación.</p>
       <div class="flex items-center gap-4">
@@ -887,78 +726,8 @@
   </div>
 </footer>
 
-<!-- ╔══════════════════════════════════════════╗
-     ║            JAVASCRIPT                   ║
-     ╚══════════════════════════════════════════╝ -->
-<script>
-(function() {
-  'use strict';
-
-  // ── Mobile Menu Toggle ──
-  const toggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (toggle && mobileMenu) {
-    toggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-    });
-  }
-
-  // ── Scroll Reveal (IntersectionObserver) ──
-  const revealElements = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, i * 80);
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  revealElements.forEach(el => revealObserver.observe(el));
-
-  // ── Active nav link on scroll ──
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.toggle('text-white', link.getAttribute('href') === '#' + id);
-          link.classList.toggle('bg-white/5', link.getAttribute('href') === '#' + id);
-          link.classList.toggle('text-zinc-400', link.getAttribute('href') !== '#' + id);
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-  sections.forEach(s => scrollObserver.observe(s));
-
-  // ── Navbar shadow on scroll ──
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      navbar.classList.add('shadow-lg', 'shadow-black/20');
-    } else {
-      navbar.classList.remove('shadow-lg', 'shadow-black/20');
-    }
-  }, { passive: true });
-
-  // ── Keyboard accessibility for flip cards ──
-  document.querySelectorAll('.card-flip').forEach(card => {
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        card.classList.toggle('hover');
-      }
-    });
-  });
-
-})();
-</script>
+<!-- Main JavaScript -->
+<script src="js/main.js"></script>
 
 </body>
 </html>
